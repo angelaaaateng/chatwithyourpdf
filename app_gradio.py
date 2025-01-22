@@ -5,7 +5,7 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
 from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
-from langchain.chat_models import ChatOpenAI
+from langchain_community.chat_models import ChatOpenAI
 
 def process_pdf(file_path):
     """Process PDF with fallback strategies"""
@@ -68,7 +68,7 @@ def respond(query, chat_history, conversation_chain):
         raise gr.Error(f"Error processing query: {str(e)}")
 
 with gr.Blocks(title="PDF Chatbot", theme=gr.themes.Soft()) as app:
-    gr.Markdown("# 📄 PDF Chatbot - Ask Questions About Your Document")
+    gr.Markdown("# 📄 DocuBuddy - Ask Me Questions About Your Document")
     
     # State variables
     conversation_chain = gr.State(None)
